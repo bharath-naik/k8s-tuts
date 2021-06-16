@@ -1,0 +1,23 @@
+
+
+There are tons of services offered by k8s but most of the everyday tasks we peform are: 
+1. deployment
+2. node
+3. ingress
+4. egress
+5. service
+6. config maps
+7. secret
+8. networking
+9. pod
+
+pod: smallest unit of k8s inside a node
+abstraction over container
+
+
+
+
+
+
+
+
