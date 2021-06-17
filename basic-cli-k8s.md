@@ -87,3 +87,5 @@ some basic CLI commands are
 #Metrics
 kubectl top The kubectl top command returns current CPU and memory usage for a cluster’s
 pods or nodes, or for a particular pod or node if specified.
+
+![image](https://user-images.githubusercontent.com/20774548/122464962-15767300-cfd5-11eb-8a81-964917d79b60.png)
