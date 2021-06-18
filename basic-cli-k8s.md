@@ -38,13 +38,28 @@ some basic CLI commands are
 
 `kubectl get nodes`
 
+lits the number of nodes that are running 🏃 on the cluster
+
 `kubectl get pod`
+
+lits the number of pods in a node that are running 🏃 on the cluster
+
 
 `kubectl get services`
 
+lits the number of services in pods that are running 🏃 on the cluster
+
+
 `kubectl create deployment nginx-depl --image=nginx`
 
+the above command creates a deployment file automatically with the given image name and you can provide many options also. eg `kubectl create deployment nginx-depl --image=nginx option1 option2 option3 ` etc.
+
+
+
+
 `kubectl get deployment`
+
+get gives all the info related to deployment like configuration inside a deployment.
 
 `kubectl get replicaset`
 
