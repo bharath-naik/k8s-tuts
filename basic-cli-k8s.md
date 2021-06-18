@@ -89,3 +89,9 @@ kubectl top The kubectl top command returns current CPU and memory usage for a c
 pods or nodes, or for a particular pod or node if specified.
 
 ![image](https://user-images.githubusercontent.com/20774548/122464962-15767300-cfd5-11eb-8a81-964917d79b60.png)
+
+Deployment manages replicasets, replicasets manages pod, pods are abstraction of container. so everything below deployment is handled by kubernetes.
+
+![image](https://user-images.githubusercontent.com/20774548/122548226-b3f2ea80-d04e-11eb-9115-0c0fedbe4540.png)
+
+
