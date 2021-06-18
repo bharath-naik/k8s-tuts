@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment #we are creating a deployment type of file
+metadata:
+  name: ngins-deployment #name of deployment that yo want to give
+  labels:
+    app: nginx #labels can be ignored now, they are usually like any image name or etc
+spec: # this specification is for deployment 
+  replicas: 2 # no of replicas pods to be created so no downtime can be present and 
+  #whenever you provide replica number templete should be given so that it takes the blueprint of pods
+  selector: 
+  matchLabels:
+    app: nginx
+    #akims means apiVesion, kind, metadata, spec are commmon for any kind of yaml file
+  template:
+    metadata:
+      labels:
+        app: nginx
+      spec: #this specification is for pods
+        containers:
+        - name: ngnx #here we are saying that we want 1 contianer inside of a pod with nginx image
+          image: nginx:1.16
+          ports:
+          - contianerPort: 80 #binding with the port 80
+    
