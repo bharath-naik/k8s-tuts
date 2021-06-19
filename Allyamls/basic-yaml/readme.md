@@ -48,3 +48,6 @@ connection is made with the selector.
 
 ![image](https://user-images.githubusercontent.com/20774548/122650099-9efd8080-d14e-11eb-92f0-b838964c7b2f.png)
 
+the service port must match the containerPort
+
+![image](https://user-images.githubusercontent.com/20774548/122650905-074e6100-d153-11eb-8003-d5034f5cceeb.png)
