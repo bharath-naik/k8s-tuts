@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: my-app #your app name or deployment name
   labels:
-    app: my-app
+    app: my-app-xcdf #this labels.app helps the service to find out the deployment pod
 spec:
-  replicas: 2
+  replicas: 2 #this replica of pod is generated from the blueprint of template. 
   selector:
     matchLabels:
       app: my-app
@@ -15,11 +15,23 @@ spec:
         app: my-app
     spec:
       containers:
-        - name: my-app
-          image: my-image
+        - name: my-app # name of the container
+          image: my-image #name of the image present at gcr, dockerhub or any
           env:
             - name: SOME_ENV
               value: $SOME_ENV
           ports:
-          - containerPort: 8080
+          - containerPort: 8080 # this port must match the service targetPort
+---
+apiVersion: v1
+kind: service
+metadata:
+  name: my-app-service #your app name or service name it's upto you
+spec:
+  selector:
+    app: my-app-xcdf
+    ports:
+      - protocol: TCP
+        port: 80
+        targetPort: 8080
 
