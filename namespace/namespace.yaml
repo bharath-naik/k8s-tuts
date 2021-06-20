@@ -1,0 +1,11 @@
+#example file for demo purpose of using namespace in clusters
+apiVersion: v1
+kind: service
+metadata:
+  name: mypushpin-service
+  namespace: my-namespace
+spec:
+replicas: 2
+matchLabels:
+  name: my-pushpin
+  ***
