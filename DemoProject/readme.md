@@ -23,4 +23,12 @@ let's run the command `kubectl get all`. this get's all the components that are 
 
 **let's create a mongoDB deployemnt but the secret must be deployed first to reference in the mongodb deployement env values**
 
+The below screenshot shows the secretKeyRef name should be the name of kind secret and key should be the key of data in same kind secret.
+
+![image](https://user-images.githubusercontent.com/20774548/122665353-54b6e680-d1c4-11eb-9a99-a0a6d9da90eb.png)
+
+run the command `kubectl get all`. it shows all the deployments, pods, services status.
+
+if the services/pods/any are taking time and you want to know the status then simply run `kubectl describe <pod | services | deployment>` 
+
 
