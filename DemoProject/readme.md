@@ -21,4 +21,6 @@ refrence both inside the deployment file.
 
 let's run the command `kubectl get all`. this get's all the components that are inside the cluster
 
-let's create a mongoDB deployemnt
+**let's create a mongoDB deployemnt but the secret must be deployed first to reference in the mongodb deployement env values**
+
+
