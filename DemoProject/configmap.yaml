@@ -1,0 +1,8 @@
+# this configMap values will be used in mongo-express for accessing databse url and and credentials
+# if you are using "configmap" config kind file then it has to be deployed first. 
+apiVersion: v1
+kind: ConfigMap # this is new kind of config map works as centralised
+metadata:
+  name: mongodb-configmap
+data:
+  database_url: mongodb-service
