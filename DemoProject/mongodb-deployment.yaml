@@ -22,9 +22,15 @@ metadata:
           env: 
    #username and password shouldn't get here. so what we gonna do is create a secret yml file.
           - name: MONGO_INITDB_ROOT_USERNAME
-            value:
+            valueFrom: #as we are referencing from secret yaml. which has to be already deployed
+              secretKeyRef:
+                name: mongodb-secret  #this name should be the name of kind secret under metadata
+                key: mongo-root-username
           - name: MONGO_INITDB_ROOT_PASSWORD
-            value:
+            valueFrom: #as we are referencing from secret yaml. which has to be already deployed
+              secretKeyRef:
+                name: mongodb-secret  #this name should be the name of kind secret under metadata
+                key: mongo-root-password
             
         
     
