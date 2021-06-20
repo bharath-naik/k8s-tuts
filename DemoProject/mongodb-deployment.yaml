@@ -32,5 +32,23 @@ metadata:
                 name: mongodb-secret  #this name should be the name of kind secret under metadata
                 key: mongo-root-password
             
-        
+ # we can write multiple configuration/ components in a single yaml by using the seperator 
+ 
+ ---
+ 
+ apiVersion: v1
+ kind: Service
+ metadata:
+  name: mongodb-service # your own random service name
+ spec:
+  selector:
+    app: mongodb # connect to pod through label in the line 14. these two names should match always
+    ports:
+      protocol: TCP
+      port: 27017 #service port
+      targetPort: 27017 # contianerPort of deployment (line no 21)
+    # port and targetPort can be different. but here i am mkaing same for understanding.
+    # the targetPort is where you can access your application for ex: 172.17.0.6:27017. the 172.1.0.6 is pod ip address
+    #
+ 
     
