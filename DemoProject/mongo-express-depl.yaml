@@ -31,9 +31,26 @@ template:
             name: mongodb-secret
             key: mongo-root-password
        - name: ME_CONFIG_MONGODB_SERVER
-         valueFrom:
-         
+         valueFrom:    
 # the value of server url can added here but we will use configMap so that all services can use centralised source url .
          configMapKeyRef:
           name: mongodb-configmap
           key: database_url
+          
+---
+# to access the services from outside we need to have a external service configured.
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-express-ext-service
+spec:
+  selector:
+    app: mongo-express
+  type: LoadBalancer #to make it an external svc. I give type as loadbalancer. so that it assigns  an ext IP addess
+  #and so accepts external requests and we are gonna provide third port called Node port 
+  ports:
+    - protocol: TCP
+      port: 8081 #port that the container actually runs
+      targetPort: 8081 # port that the pods/internal services can access
+      nodePort: 30000 # port that an external IP address can be open. browser port to access the service
+      #nodeport actually has range from 30,000 to 32,767 something
