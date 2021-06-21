@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/vbeta1
+kind: Ingress
+metadata:
+  name: dashboard-ingress
+    namespace: kubernetes-dashboard
+spec:
+  rules:
+  - host: dashboard.com
+    http:
+      paths:
+        -backend:
+          serviceName: kubernetes-dashboard # this is the name of service in metadata of kind "service"
+                              #this service can be also found at kubectl get svc
+          servicePort: 80 #this is also comes from the above command
+          
+          #this ingress basic just forwards any requests from dashboard.com to `serviceName: kubernetes-dashboard`
+          
+          #kubectl get ingress -n kubernetes-dashboard  then you can actually see webaddress here under HOST section
+          
+          
