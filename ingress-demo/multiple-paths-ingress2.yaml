@@ -1,0 +1,22 @@
+#you can have multiple hosts with 1 path. each host represents a sub domain. you can request to http://speaker.vewmet.com
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: name-virtual-host-ingress
+spec:
+  rules:
+  - host: speaker.vewmet.com
+    http:
+      paths:
+        backend:
+          serviceName: speaker-service
+          servicePort: 3000
+          
+  - host: listener.vewmet.com
+    http:
+      paths:
+        backend:
+          serviceName: listener-service
+          servicePort: 8080
+ 
