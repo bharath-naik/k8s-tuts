@@ -1,0 +1,37 @@
+#in this file i will show you the https:// version of ingress. it is very simple and simple to the multiple-paths-ingress2.yaml i have just created
+# super easy to configure the https forwarded request in ingress
+#only thing you will do is define a attribute called "tls" above the rules section at hosts and "secretName"
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: tls-example-ingress
+spec:
+  tls: # these 10-13 lines will map 🗺 https request to the host myweb.com
+  - hosts:
+    - myweb.com
+    secretName: myapp-secret-tls  # create a new service of kind secret and put that metadata name here
+  rules:
+    -hosts: myweb.com
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: myapp-internal-service
+            servicePort: 8080
+            
+ ---
+ 
+# for demo purpose i am keeping the kind secret but it should be a seperate yaml and executed first
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: myapp-secret-tls #name should be same as line 13
+  namespace: default #same namespace where ingress component lies
+data:
+  tls.crt: base64 encoded cert #always it needs to be tls.crt 📝 and values should be content in base64 format not file path location
+  tls.key: base64 encode key #always it needs to be tls.key 🗝 and values should be content in base64 format not file path location
+type: kubernetes.io/tls  
+  
+ 
