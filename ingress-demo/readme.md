@@ -70,4 +70,10 @@ You can 🥫 use cloud providers Loadbalancer, which in turn reduces all the eff
 
 If you are configuring on Bare Metal then you need to configure some sort of entrypoint
 
-either inside or outside of the cluster, you need to provide an entryoint.  
+either inside or outside of the cluster, you need to provide an entryoint.
+
+
+the below screenshot is related to ingress gateway dashboard.
+
+![image](https://user-images.githubusercontent.com/20774548/122817875-1b7e9380-d2f6-11eb-9a21-acd3dca8c87f.png)
+
